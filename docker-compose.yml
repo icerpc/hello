@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  hello:
+    build: .
+    volumes:
+      - ./certs:/certs
+    ports:
+      - "4062:4062/tcp" # TCP
+      - "4062:4062/udp" # QUIC
