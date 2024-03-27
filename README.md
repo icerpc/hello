@@ -1,8 +1,8 @@
 # Hello, IceRPC
 
 This repository contains the source code for `icerpc://hello.icerpc.dev`. This is a public IceRPC server that
-demonstrates the capabilities of IceRPC and is intended to be used as a reference for developers
-implementing IceRPC language bindings.
+is intended to be used by developers implementing an IceRPC library to test their implementation against a
+a working "reference" server.
 
 ## Available Services
 
@@ -23,10 +23,9 @@ docker compose up
 Once running the server will be available at `icerpc://localhost` using the `TCP` and `QUIC` transports on the default
 port (4062).
 
-### Configuration
+## Configuration
 
-The server can be configured using environment variables (which can be set in the compose file).
-The following environment variables are available:
+The server can be configured though several environment variables:
 
 - `LOG_LEVEL` - The [log level](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line#log-level). Default: `Debug`
 - `SERVER_CERT` - Path to the server certificate. Default: `/certs/server.p12`
