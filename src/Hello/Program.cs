@@ -34,12 +34,12 @@ var router = new Router()
     .Map<Greeter.Slice.IGreeterService>(new Greeter.Slice.Chatbot());
 
 // Create a server that uses the TCP transport on the default port (4062).
-await using var tcpSever = new Server(
+await using var tcpServer = new Server(
     router,
     useTlsWithTcp ? sslAuthenticationOptions: null,
     logger: loggerFactory.CreateLogger<Server>());
 
-tcpSever.Listen();
+tcpServer.Listen();
 
 // Create a server that uses the QUIC transport on the default port (4062).
 await using var quicServer = new Server(
@@ -53,4 +53,4 @@ quicServer.Listen();
 // Wait until the console receives a Ctrl+C.
 await CancelKeyPressed;
 // Shutdown the servers.
-await Task.WhenAll(tcpSever.ShutdownAsync(), quicServer.ShutdownAsync());
+await Task.WhenAll(tcpServer.ShutdownAsync(), quicServer.ShutdownAsync());
