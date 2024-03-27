@@ -20,7 +20,8 @@ configuration in the [`docker-compose.yml`](./docker-compose.yml) file.
 docker compose up
 ```
 
-Once running the server will be available at `icerpc://localhost` using the `TCP` and `QUIC` transports.
+Once running the server will be available at `icerpc://localhost` using the `TCP` and `QUIC` transports on the default
+port (4062).
 
 ### Configuration
 
