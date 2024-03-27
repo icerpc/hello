@@ -41,7 +41,7 @@ await using var tcpSever = new Server(
 
 tcpSever.Listen();
 
-// Create a server that uses the SLIC transport on the default port (4062).
+// Create a server that uses the QUIC transport on the default port (4062).
 await using var quicServer = new Server(
         router,
         sslAuthenticationOptions,
