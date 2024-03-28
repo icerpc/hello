@@ -52,5 +52,6 @@ quicServer.Listen();
 
 // Wait until the console receives a Ctrl+C.
 await CancelKeyPressed;
+
 // Shutdown the servers.
 await Task.WhenAll(tcpServer.ShutdownAsync(), quicServer.ShutdownAsync());
