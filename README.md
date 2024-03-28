@@ -1,8 +1,8 @@
 # Hello, IceRPC
 
 This repository contains the source code for `icerpc://hello.icerpc.dev`. This is a public IceRPC server that
-is intended to be used by developers implementing an IceRPC library to test their implementation against a
-a working "reference" server.
+is intended to be used by developers who implement their own IceRPC and want to test their implementation
+against a working "reference" server.
 
 ## Available Services
 
