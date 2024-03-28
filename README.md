@@ -9,6 +9,7 @@ a working "reference" server.
 The following services are mapped to their default service paths and are available using the `TCP` and `QUIC` transports.
 
 - [Slice Greeter](./src/Greeter.Slice/slice/Greeter.slice) - `icerpc://hello.icerpc.dev/VisitorCenter.Greeter`
+  - Example client [C#](./src/Greeter.Slice/Client/Program.cs)
 - [Protobuf Greeter](./src/Greeter.Protobuf/proto/greeter.proto) - `icerpc://hello.icerpc.dev/visitor_center.Greeter`
 
 ## Running the server locally with Docker Compose

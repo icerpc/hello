@@ -3,7 +3,7 @@
 syntax = "proto3";
 
 package visitor_center;
-option csharp_namespace = "Greeter.Protobuf";
+option csharp_namespace = "Hello.Greeter.Protobuf";
 
 // Represents a simple greeter.
 service Greeter {

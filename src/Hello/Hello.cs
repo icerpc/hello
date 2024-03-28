@@ -30,8 +30,8 @@ using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
 var router = new Router()
     .UseLogger(loggerFactory)
     .UseDeadline()
-    .Map<Greeter.Protobuf.IGreeterService>(new Greeter.Protobuf.Chatbot())
-    .Map<Greeter.Slice.IGreeterService>(new Greeter.Slice.Chatbot());
+    .Map<Hello.Greeter.Protobuf.IGreeterService>(new Hello.Greeter.Protobuf.Chatbot())
+    .Map<Hello.Greeter.Slice.IGreeterService>(new Hello.Greeter.Slice.Chatbot());
 
 // Create a server that uses the TCP transport on the default port (4062).
 await using var tcpServer = new Server(

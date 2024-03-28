@@ -3,7 +3,7 @@
 using IceRpc.Features;
 using IceRpc.Slice;
 
-namespace Greeter.Slice;
+namespace Hello.Greeter.Slice;
 
 /// <summary>A Chatbot is an IceRPC service that implements Slice interface 'Greeter'.</summary>
 [SliceService]
