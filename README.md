@@ -33,4 +33,4 @@ The server can be configured through several environment variables:
 - `SERVER_CERT` - Path to the server certificate. Default: `/certs/server.p12`
 - `USE_TLS_WITH_TCP` - Configure the usage of TLS with the TCP transport. Default: `true`
 
-The QUIC transport requires TLS and is always enabled.
+The QUIC transport requires TLS, which is always enabled.
