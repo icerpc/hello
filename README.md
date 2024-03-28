@@ -27,7 +27,7 @@ port (4062).
 
 ## Configuration
 
-The server can be configured though several environment variables:
+The server can be configured through several environment variables:
 
 - `LOG_LEVEL` - The [log level](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line#log-level). Default: `Debug`
 - `SERVER_CERT` - Path to the server certificate. Default: `/certs/server.p12`
