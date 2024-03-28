@@ -8,10 +8,12 @@ a working "reference" server.
 
 The following services are mapped to their default service paths and are available using the `TCP` and `QUIC` transports.
 
-- [Slice Greeter](./src/Greeter.Slice/slice/Greeter.slice) - `icerpc://hello.icerpc.dev/VisitorCenter.Greeter`
-  - [IceRpc C# example client ](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/slice/Secure/Client)
-- [Protobuf Greeter](./src/Greeter.Protobuf/proto/greeter.proto) - `icerpc://hello.icerpc.dev/visitor_center.Greeter`
-  - [IceRpc C# example client ](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/protobuf/Secure/Client)
+- [Slice Greeter](./src//slice/Greeter.slice) - `icerpc://hello.icerpc.dev/VisitorCenter.Greeter`
+  - [IceRPC C# Secure slice example client](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/slice/Secure/Client)
+  - [IceRPC C# QUIC slice example client](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/slice/Quic/Client)
+- [Protobuf Greeter](./src/proto/greeter.proto) - `icerpc://hello.icerpc.dev/visitor_center.Greeter`
+  - [IceRPC C# Secure protobuf  example client](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/protobuf/Secure/Client)
+  - [IceRPC C# QUIC protobuf example client](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/protobuf/Quic/Client)
 
 ## Running the server locally with Docker Compose
 
