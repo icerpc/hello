@@ -45,7 +45,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Copy the built application from the build stage
 WORKDIR /app
-COPY --from=build /app/src/bin/Release/net8.0/ .
+COPY --from=build /app/src/Hello/bin/Release/net8.0/ .
 
 # Expose the port for the TCP and QUIC transports
 EXPOSE 4062/tcp
