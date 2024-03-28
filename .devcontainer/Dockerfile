@@ -12,6 +12,3 @@ RUN set -eux \
     && sudo apt-get install -y libmsquic \
     && sudo rm -rf /var/lib/apt/lists/* \
     && sudo apt-get clean
-
-# Set environment variables
-ENV PATH=/home/vscode/.cargo/bin:$PATH
