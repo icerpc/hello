@@ -1,0 +1,20 @@
+{
+    "version": "0.2",
+    "language": "en",
+    "words": [
+        "buildtransitive",
+        "contentfiles",
+        "proto",
+        "stylecop",
+        "Protobuf",
+        "quic"
+    ],
+    "dictionaries": [
+        "csharp",
+        "softwareTerms",
+        "en_US"
+    ],
+    "enableFiletypes": [
+        "slice"
+    ]
+}

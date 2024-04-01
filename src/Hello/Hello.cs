@@ -7,16 +7,18 @@ using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
 // The log level for the logger factory
-var logLevel = Enum.Parse<LogLevel>(Environment.GetEnvironmentVariable("LOG_LEVEL") ?? "Debug");
+LogLevel logLevel = Enum.Parse<LogLevel>(Environment.GetEnvironmentVariable("LOG_LEVEL") ?? "Debug");
+
 // The path to the server certificate used for TLS.
-var serverCert = Environment.GetEnvironmentVariable("SERVER_CERT") ?? "/certs/server.p12";
+string serverCert = Environment.GetEnvironmentVariable("SERVER_CERT") ?? "/certs/server.p12";
+
 // Whether to use TLS with the TCP transport.
-var useTlsWithTcp = bool.Parse(Environment.GetEnvironmentVariable("USE_TLS_WITH_TCP") ?? "true");
+bool useTlsWithTcp = bool.Parse(Environment.GetEnvironmentVariable("USE_TLS_WITH_TCP") ?? "true");
 
 // Create server authentication options with the server certificate.
-SslServerAuthenticationOptions sslAuthenticationOptions =  new SslServerAuthenticationOptions
+var sslAuthenticationOptions = new SslServerAuthenticationOptions
 {
-    ServerCertificate = new X509Certificate2(serverCert)
+    ServerCertificate = new X509Certificate2(serverCert),
 };
 
 // Create a simple console logger factory and configure the log level for category IceRpc.
@@ -27,7 +29,7 @@ using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
 
 // Create a router (dispatch pipeline), install two middleware and map the Slice and Protobuf Chatbot greeter services
 // to their default paths.
-var router = new Router()
+Router router = new Router()
     .UseLogger(loggerFactory)
     .UseDeadline()
     .Map<Hello.Greeter.Protobuf.IGreeterService>(new Hello.Greeter.Protobuf.Chatbot())
@@ -36,7 +38,7 @@ var router = new Router()
 // Create a server that uses the TCP transport on the default port (4062).
 await using var tcpServer = new Server(
     router,
-    useTlsWithTcp ? sslAuthenticationOptions: null,
+    useTlsWithTcp ? sslAuthenticationOptions : null,
     logger: loggerFactory.CreateLogger<Server>());
 
 tcpServer.Listen();
