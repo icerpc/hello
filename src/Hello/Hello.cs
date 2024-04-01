@@ -8,15 +8,17 @@ using System.Security.Cryptography.X509Certificates;
 
 // The log level for the logger factory
 LogLevel logLevel = Enum.Parse<LogLevel>(Environment.GetEnvironmentVariable("LOG_LEVEL") ?? "Debug");
+
 // The path to the server certificate used for TLS.
 string serverCert = Environment.GetEnvironmentVariable("SERVER_CERT") ?? "/certs/server.p12";
+
 // Whether to use TLS with the TCP transport.
 bool useTlsWithTcp = bool.Parse(Environment.GetEnvironmentVariable("USE_TLS_WITH_TCP") ?? "true");
 
 // Create server authentication options with the server certificate.
-var sslAuthenticationOptions =  new SslServerAuthenticationOptions
+var sslAuthenticationOptions = new SslServerAuthenticationOptions
 {
-    ServerCertificate = new X509Certificate2(serverCert)
+    ServerCertificate = new X509Certificate2(serverCert),
 };
 
 // Create a simple console logger factory and configure the log level for category IceRpc.
@@ -36,7 +38,7 @@ Router router = new Router()
 // Create a server that uses the TCP transport on the default port (4062).
 await using var tcpServer = new Server(
     router,
-    useTlsWithTcp ? sslAuthenticationOptions: null,
+    useTlsWithTcp ? sslAuthenticationOptions : null,
     logger: loggerFactory.CreateLogger<Server>());
 
 tcpServer.Listen();

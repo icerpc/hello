@@ -7,7 +7,7 @@ namespace Hello.Greeter.Slice;
 
 /// <summary>A Chatbot is an IceRPC service that implements Slice interface 'Greeter'.</summary>
 [SliceService]
-internal sealed partial class Chatbot : IGreeterService
+internal partial class Chatbot : IGreeterService
 {
     public ValueTask<string> GreetAsync(string name, IFeatureCollection features, CancellationToken cancellationToken)
     {
