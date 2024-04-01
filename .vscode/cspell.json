@@ -5,6 +5,7 @@
         "buildtransitive",
         "contentfiles",
         "proto",
+        "stylecop",
         "Protobuf",
         "quic"
     ],
