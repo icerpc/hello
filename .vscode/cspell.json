@@ -4,8 +4,6 @@
     "words": [
         "buildtransitive",
         "contentfiles",
-        "fullchain",
-        "privkey",
         "proto",
         "Protobuf",
         "quic",
