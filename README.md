@@ -33,7 +33,7 @@ The server can be configured through several environment variables:
 
 - `LOG_LEVEL` - The [log level](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line#log-level). Default: `Debug`
 - `SERVER_CERT` - Path to the server certificate. Default: `/certs/server_cert.pem`
-- `SERVER_KEY` - Path to the server certificate. Default: `/certs/server_key.pem`
+- `SERVER_KEY` - Path to the server private key. Default: `/certs/server_key.pem`
 - `USE_TLS_WITH_TCP` - Configure the usage of TLS with the TCP transport. Default: `true`
 
 The QUIC transport requires TLS, which is always enabled.
