@@ -10,10 +10,10 @@ using System.Security.Cryptography.X509Certificates;
 LogLevel logLevel = Enum.Parse<LogLevel>(Environment.GetEnvironmentVariable("LOG_LEVEL") ?? "Debug");
 
 // The private key for the server certificate.
-string serverKey = Environment.GetEnvironmentVariable("SERVER_KEY") ?? "/certs/privkey.pem";
+string serverKey = Environment.GetEnvironmentVariable("SERVER_KEY") ?? "/certs/server_key.pem";
 
 // The server certificate (with the full chain) file.
-string serverCert = Environment.GetEnvironmentVariable("SERVER_CERT") ?? "/certs/fullchain.pem";
+string serverCert = Environment.GetEnvironmentVariable("SERVER_CERT") ?? "/certs/server_cert.pem";
 
 // Whether to use TLS with the TCP transport.
 bool useTlsWithTcp = bool.Parse(Environment.GetEnvironmentVariable("USE_TLS_WITH_TCP") ?? "true");
