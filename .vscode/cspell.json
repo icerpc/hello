@@ -4,6 +4,7 @@
     "words": [
         "buildtransitive",
         "contentfiles",
+        "icerpc",
         "proto",
         "Protobuf",
         "quic",
