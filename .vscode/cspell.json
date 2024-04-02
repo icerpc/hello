@@ -4,10 +4,12 @@
     "words": [
         "buildtransitive",
         "contentfiles",
+        "fullchain",
+        "privkey",
         "proto",
-        "stylecop",
         "Protobuf",
-        "quic"
+        "quic",
+        "stylecop"
     ],
     "dictionaries": [
         "csharp",
