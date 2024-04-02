@@ -9,16 +9,26 @@ using System.Security.Cryptography.X509Certificates;
 // The log level for the logger factory
 LogLevel logLevel = Enum.Parse<LogLevel>(Environment.GetEnvironmentVariable("LOG_LEVEL") ?? "Debug");
 
-// The path to the server certificate used for TLS.
-string serverCert = Environment.GetEnvironmentVariable("SERVER_CERT") ?? "/certs/server.p12";
+// The private key for the server certificate.
+string serverKey = Environment.GetEnvironmentVariable("SERVER_KEY") ?? "/certs/server_key.pem";
+
+// The server certificate (with the full chain) file.
+string serverCert = Environment.GetEnvironmentVariable("SERVER_CERT") ?? "/certs/server_cert.pem";
 
 // Whether to use TLS with the TCP transport.
 bool useTlsWithTcp = bool.Parse(Environment.GetEnvironmentVariable("USE_TLS_WITH_TCP") ?? "true");
 
+// Load server and intermediate certificates from the server certificate file.
+using var serverCertificate = X509Certificate2.CreateFromPemFile(serverCert, serverKey);
+
+// Create a collection with the server certificate and any intermediate certificates.
+var intermediates = new X509Certificate2Collection();
+intermediates.ImportFromPemFile(serverCert);
+
 // Create server authentication options with the server certificate.
 var sslAuthenticationOptions = new SslServerAuthenticationOptions
 {
-    ServerCertificate = new X509Certificate2(serverCert),
+    ServerCertificateContext = SslStreamCertificateContext.Create(serverCertificate, intermediates),
 };
 
 // Create a simple console logger factory and configure the log level for category IceRpc.

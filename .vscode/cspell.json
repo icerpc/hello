@@ -5,9 +5,9 @@
         "buildtransitive",
         "contentfiles",
         "proto",
-        "stylecop",
         "Protobuf",
-        "quic"
+        "quic",
+        "stylecop"
     ],
     "dictionaries": [
         "csharp",
