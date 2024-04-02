@@ -28,7 +28,6 @@ intermediates.ImportFromPemFile(serverCert);
 // Create server authentication options with the server certificate.
 var sslAuthenticationOptions = new SslServerAuthenticationOptions
 {
-    ServerCertificate = new X509Certificate2(serverCert),
     ServerCertificateContext = SslStreamCertificateContext.Create(serverCertificate, intermediates),
 };
 
