@@ -17,7 +17,7 @@ transports on the default port (`4062`):
 
 The `hello` server is available as a Docker image on [Docker Hub](https://hub.docker.com/r/icerpc/hello). The server
 requires TLS certificates to run, so you will need to provide the server certificate and private key. Certificates can
-be obtained using a service like [Let's Encrypt](https://letsencrypt.org/). This repository also contains set of
+be obtained using a service like [Let's Encrypt](https://letsencrypt.org/). This repository also contains a set of
 self-signed [certificates](./certs) that can be used for testing purposes.
 
 ### Docker CLI
