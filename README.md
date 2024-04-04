@@ -16,9 +16,11 @@ transports on the default port (`4062`):
 ## Running the server using Docker
 
 The `hello` server is available as a Docker image on [Docker Hub](https://hub.docker.com/r/icerpc/hello). The server
-requires TLS certificates to run, so you will need to provide the server certificate and private key. Certificates can
-be obtained using a service like [Let's Encrypt](https://letsencrypt.org/). This repository also contains a set of
-self-signed [certificates](./certs) that can be used for testing purposes.
+requires TLS certificates to run, so you will need to provide the server certificate and private key. This repository
+contains a set of self-signed [certificates](./certs) that can be used for testing purposes.
+
+The default server certificate and private key paths are `/certs/server_cert.pem` and `/certs/server_key.pem`
+respectively. These paths can be overridden using the `SERVER_CERT` and `SERVER_KEY` environment variables.
 
 ### Docker CLI
 
@@ -74,12 +76,10 @@ Certificates are **required** to run the server as the QUIC transport requires T
 ## Building with Docker Compose
 
 This repository contains a [`Dockerfile`](./Dockerfile) that can be used to build the server as well as a
-[`compose.yml`](./compose.yml) file that can be used to build and run the server locally
+[`compose.yaml`](./compose.yaml) file that can be used to build and run the server locally
 using Docker Compose.
 
-This is the recommended way to build and run the server as QUIC support in .NET is not available on all systems.
-
-*The follows commands must be run from the root directory of the repository.*
+*The following commands must be run from the root directory of the repository.*
 
 ```bash
 # Start the server (builds the server if it does not exist)
