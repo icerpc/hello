@@ -10,8 +10,8 @@ transports on the default port (`4062`):
 
 | Service                                       | Path                                               | Description                           | Example Clients                                                                                                                                                                                 |
 | --------------------------------------------- | -------------------------------------------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Slice Greeter](./src//slice/Greeter.slice)   | `icerpc://hello.icerpc.dev/VisitorCenter.Greeter`  | A simple service that greets visitors | [C# Secure](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/slice/Secure/Client) <br>[C# QUIC](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/slice/Quic/Client)       |
-| [Protobuf Greeter](./src/proto/greeter.proto) | `icerpc://hello.icerpc.dev/visitor_center.Greeter` | A simple service that greets visitors | [C# Secure](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/protobuf/Secure/Client) <br>[C# QUIC](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/protobuf/Quic/Client) |
+| [Slice Greeter](./src//slice/Greeter.slice)   | `/VisitorCenter.Greeter`  | A simple service that greets visitors | [C# Secure](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/slice/Secure/Client) <br>[C# QUIC](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/slice/Quic/Client)       |
+| [Protobuf Greeter](./src/proto/greeter.proto) | `/visitor_center.Greeter` | A simple service that greets visitors | [C# Secure](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/protobuf/Secure/Client) <br>[C# QUIC](https://github.com/icerpc/icerpc-csharp/tree/0.3.x/examples/protobuf/Quic/Client) |
 
 ## Running the server using Docker
 
