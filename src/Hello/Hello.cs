@@ -43,7 +43,9 @@ Router router = new Router()
     .UseLogger(loggerFactory)
     .UseDeadline()
     .Map<Hello.Greeter.Protobuf.IGreeterService>(new Hello.Greeter.Protobuf.Chatbot())
-    .Map<Hello.Greeter.Slice.IGreeterService>(new Hello.Greeter.Slice.Chatbot());
+    .Map<Hello.Greeter.Slice.IGreeterService>(new Hello.Greeter.Slice.Chatbot())
+    .Map<Hello.Stream.Protobuf.IGeneratorService>(new Hello.Stream.Protobuf.RandomGenerator())
+    .Map<Hello.Stream.Slice.IGeneratorService>(new Hello.Stream.Slice.RandomGenerator());
 
 // Create a server that uses the TCP transport on the default port (4062).
 await using var tcpServer = new Server(

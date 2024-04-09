@@ -1,0 +1,10 @@
+// Copyright (c) ZeroC, Inc.
+[cs::namespace("Hello.Stream.Slice")]
+module StreamExample
+
+/// Represents a number generator.
+interface Generator {
+    /// Generates numbers.
+    /// @returns: The generated number stream.
+    generateNumbers() -> stream int32
+}
