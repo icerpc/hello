@@ -36,7 +36,7 @@ using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
     builder
     .AddSimpleConsole(options =>
         {
-            options.TimestampFormat = "[yyyy/MM/dd HH:mm:ss] ";
+            options.TimestampFormat = "[yyyy/MM/dd HH:mm:ss.fff] ";
         })
     .AddFilter("IceRpc", logLevel));
 
