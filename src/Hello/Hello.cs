@@ -34,7 +34,10 @@ var sslAuthenticationOptions = new SslServerAuthenticationOptions
 // Create a simple console logger factory and configure the log level for category IceRpc.
 using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
     builder
-    .AddSimpleConsole()
+    .AddSimpleConsole(options =>
+        {
+            options.TimestampFormat = "[yyyy/MM/dd HH:mm:ss] ";
+        })
     .AddFilter("IceRpc", logLevel));
 
 // Create a router (dispatch pipeline), install two middleware and map the Slice and Protobuf Chatbot greeter services
