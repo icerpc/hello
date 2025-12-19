@@ -49,6 +49,7 @@ jobs:
 
       - name: Deploy
         uses: appleboy/ssh-action@v1.0.3
+        if: github.event_name != 'pull_request'
         with:
           host: ${{ secrets.HELLO_HOST }}
           username: ${{ secrets.HELLO_USERNAME }}
