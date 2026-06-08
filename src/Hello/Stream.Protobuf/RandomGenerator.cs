@@ -1,14 +1,14 @@
 // Copyright (c) ZeroC, Inc.
 
 using Google.Protobuf.WellKnownTypes;
+using IceRpc;
 using IceRpc.Features;
-using IceRpc.Protobuf;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
 namespace Hello.Stream.Protobuf;
 
-[ProtobufService]
+[Service]
 internal partial class RandomGenerator : IGeneratorService
 {
     public ValueTask<IAsyncEnumerable<GenerateResponse>> GenerateNumbersAsync(

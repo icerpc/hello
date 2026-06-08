@@ -1,6 +1,6 @@
 // Copyright (c) ZeroC, Inc.
 
-[cs::namespace("Hello.Greeter.Slice")]
+[cs::identifier("Hello.Greeter.Slice")]
 module VisitorCenter
 
 /// Represents a simple greeter.

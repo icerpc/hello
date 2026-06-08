@@ -1,13 +1,13 @@
 // Copyright (c) ZeroC, Inc.
 
+using IceRpc;
 using IceRpc.Features;
-using IceRpc.Slice;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 
 namespace Hello.Stream.Slice;
 
-[SliceService]
+[Service]
 internal partial class RandomGenerator : IGeneratorService
 {
     public ValueTask<IAsyncEnumerable<int>> GenerateNumbersAsync(

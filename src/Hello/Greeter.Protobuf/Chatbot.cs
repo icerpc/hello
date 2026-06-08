@@ -1,12 +1,12 @@
 // Copyright (c) ZeroC, Inc.
 
+using IceRpc;
 using IceRpc.Features;
-using IceRpc.Protobuf;
 
 namespace Hello.Greeter.Protobuf;
 
 /// <summary>A Chatbot is an IceRPC service that implements Protobuf service 'Greeter'.</summary>
-[ProtobufService]
+[Service]
 internal partial class Chatbot : IGreeterService
 {
     public ValueTask<GreetResponse> GreetAsync(
