@@ -34,7 +34,7 @@ using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
     .AddFilter("IceRpc", logLevel));
 
 // Create a router (dispatch pipeline), install two middleware and map the Slice and Protobuf Chatbot greeter services
-// to their default paths.
+// to their default paths, and the Slice and Protobuf RandomGenerator services to their default paths.
 Router router = new Router()
     .UseLogger(loggerFactory)
     .UseDeadline()
