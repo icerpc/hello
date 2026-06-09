@@ -1,7 +1,6 @@
 // Copyright (c) ZeroC, Inc.
 
 using IceRpc;
-using IceRpc.Transports.Quic;
 using Microsoft.Extensions.Logging;
 using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
@@ -14,9 +13,6 @@ string serverKey = Environment.GetEnvironmentVariable("SERVER_KEY") ?? "/certs/s
 
 // The server certificate (with the full chain) file.
 string serverCert = Environment.GetEnvironmentVariable("SERVER_CERT") ?? "/certs/server_cert.pem";
-
-// Whether to use TLS with the TCP transport.
-bool useTlsWithTcp = bool.Parse(Environment.GetEnvironmentVariable("USE_TLS_WITH_TCP") ?? "true");
 
 // Load server and intermediate certificates from the server certificate file.
 using var serverCertificate = X509Certificate2.CreateFromPemFile(serverCert, serverKey);
@@ -38,29 +34,30 @@ using ILoggerFactory loggerFactory = LoggerFactory.Create(builder =>
     .AddFilter("IceRpc", logLevel));
 
 // Create a router (dispatch pipeline), install two middleware and map the Slice and Protobuf Chatbot greeter services
-// to their default paths.
+// to their default paths, and the Slice and Protobuf RandomGenerator services to their default paths.
 Router router = new Router()
     .UseLogger(loggerFactory)
     .UseDeadline()
-    .Map<Hello.Greeter.Protobuf.IGreeterService>(new Hello.Greeter.Protobuf.Chatbot())
-    .Map<Hello.Greeter.Slice.IGreeterService>(new Hello.Greeter.Slice.Chatbot())
-    .Map<Hello.Stream.Protobuf.IGeneratorService>(new Hello.Stream.Protobuf.RandomGenerator())
-    .Map<Hello.Stream.Slice.IGeneratorService>(new Hello.Stream.Slice.RandomGenerator());
+    .Map(new Hello.Greeter.Protobuf.Chatbot())
+    .Map(new Hello.Greeter.Slice.Chatbot())
+    .Map(new Hello.Stream.Protobuf.RandomGenerator())
+    .Map(new Hello.Stream.Slice.RandomGenerator());
 
 // Create a server that uses the TCP transport on the default port (4062).
 await using var tcpServer = new Server(
     router,
-    useTlsWithTcp ? sslAuthenticationOptions : null,
-    logger: loggerFactory.CreateLogger<Server>());
+    serverAddressUri: new Uri("icerpc://[::0]?transport=tcp"),
+    serverAuthenticationOptions: sslAuthenticationOptions,
+    logger: loggerFactory.CreateLogger("Hello.TcpServer"));
 
 tcpServer.Listen();
 
 // Create a server that uses the QUIC transport on the default port (4062).
 await using var quicServer = new Server(
-        router,
-        sslAuthenticationOptions,
-        logger: loggerFactory.CreateLogger<Server>(),
-        multiplexedServerTransport: new QuicServerTransport());
+    router,
+    serverAddressUri: new Uri("icerpc://[::0]?transport=quic"),
+    serverAuthenticationOptions: sslAuthenticationOptions,
+    logger: loggerFactory.CreateLogger("Hello.QuicServer"));
 
 quicServer.Listen();
 

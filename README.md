@@ -10,10 +10,10 @@ transports on the default port (`4062`):
 
 | Service                                        | Path                        | Description                           | Example Clients                                                                                                                                                                                                  |
 | ---------------------------------------------- | --------------------------- | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Slice Greeter](./src//slice/Greeter.slice)    | `/VisitorCenter.Greeter`    | A simple service that greets visitors | [C# Slice Secure](https://github.com/icerpc/icerpc-csharp/tree/0.5.x/examples/slice/Secure/Client)<br>[C# Slice QUIC](https://github.com/icerpc/icerpc-csharp/tree/0.5.x/examples/slice/Quic/Client)             |
-| [Protobuf Greeter](./src/proto/greeter.proto)  | `/visitor_center.Greeter`   | A simple service that greets visitors | [C# Protobuf Secure](https://github.com/icerpc/icerpc-csharp/tree/0.5.x/examples/protobuf/Secure/Client)<br>[C# Protobuf QUIC](https://github.com/icerpc/icerpc-csharp/tree/0.5.x/examples/protobuf/Quic/Client) |
-| [Slice Stream](./src/slice/Generator.slice)    | `/StreamExample.Generator`  | A service that streams data           | [C# Slice Stream](https://github.com/icerpc/icerpc-csharp/tree/0.5.x/examples/slice/Stream/Client)                                                                                                               |
-| [Protobuf Stream](./src/proto/generator.proto) | `/stream_example.Generator` | A service that streams data           | [C# Protobuf Stream](https://github.com/icerpc/icerpc-csharp/tree/0.5.x/examples/protobuf/Stream/Client)                                                                                                         |
+| [Slice Greeter](./src/slice/Greeter.slice)     | `/VisitorCenter.Greeter`    | A simple service that greets visitors | [C# Slice Secure](https://github.com/icerpc/icerpc-csharp/tree/0.6.x/examples/slice/Secure/Client)<br>[C# Slice QUIC](https://github.com/icerpc/icerpc-csharp/tree/0.6.x/examples/slice/Quic/Client)             |
+| [Protobuf Greeter](./src/proto/greeter.proto)  | `/visitor_center.Greeter`   | A simple service that greets visitors | [C# Protobuf Secure](https://github.com/icerpc/icerpc-csharp/tree/0.6.x/examples/protobuf/Secure/Client)<br>[C# Protobuf QUIC](https://github.com/icerpc/icerpc-csharp/tree/0.6.x/examples/protobuf/Quic/Client) |
+| [Slice Stream](./src/slice/Generator.slice)    | `/StreamExample.Generator`  | A service that streams data           | [C# Slice Stream](https://github.com/icerpc/icerpc-csharp/tree/0.6.x/examples/slice/Stream/Client)                                                                                                               |
+| [Protobuf Stream](./src/proto/generator.proto) | `/stream_example.Generator` | A service that streams data           | [C# Protobuf Stream](https://github.com/icerpc/icerpc-csharp/tree/0.6.x/examples/protobuf/Stream/Client)                                                                                                         |
 
 ## Running the server using Docker
 
@@ -40,7 +40,7 @@ docker run \
   -e LOG_LEVEL= \
   -e SERVER_CERT= \
   -e SERVER_KEY= \
-  -e USE_TLS_WITH_TCP=true icerpc/hello
+  icerpc/hello
 ```
 
 ### Docker Compose
@@ -56,7 +56,6 @@ services:
       - LOG_LEVEL= #optional
       - SERVER_CERT= #optional
       - SERVER_KEY= #optional
-      - USE_TLS_WITH_TCP= #optional
     volumes:
       - /path/to/certificates/:/certs
 
@@ -71,7 +70,6 @@ The server can be configured through several environment variables:
 | `LOG_LEVEL`          | The [log level](https://learn.microsoft.com/en-us/dotnet/core/extensions/logging?tabs=command-line#log-level) | `Debug`                  |
 | `SERVER_CERT`        | Path to the server certificate                                                                                | `/certs/server_cert.pem` |
 | `SERVER_KEY`         | Path to the server private key                                                                                | `/certs/server_key.pem`  |
-| `USE_TLS_WITH_TCP`   | Configure the usage of TLS with the TCP transport                                                             | `true`                   |
 
 Certificates are **required** to run the server as the QUIC transport requires TLS.
 

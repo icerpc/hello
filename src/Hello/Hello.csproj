@@ -15,13 +15,13 @@
     <EnablePreviewFeatures>True</EnablePreviewFeatures>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="IceRpc.Deadline" Version="0.5.*" />
-    <PackageReference Include="IceRpc.Logger" Version="0.5.*" />
-    <PackageReference Include="IceRpc.Protobuf.Tools" Version="0.5.*" PrivateAssets="All" />
-    <PackageReference Include="IceRpc.Protobuf" Version="0.5.*" />
-    <PackageReference Include="IceRpc.Slice.Tools" Version="0.5.*" PrivateAssets="All" />
-    <PackageReference Include="IceRpc.Slice" Version="0.5.*" />
-    <PackageReference Include="IceRpc.Transports.Quic" Version="0.5.*" />
+    <PackageReference Include="IceRpc" Version="0.6.*" />
+    <PackageReference Include="IceRpc.Deadline" Version="0.6.*" />
+    <PackageReference Include="IceRpc.Logger" Version="0.6.*" />
+    <PackageReference Include="IceRpc.Protobuf.Tools" Version="0.6.*" PrivateAssets="All" />
+    <PackageReference Include="IceRpc.Protobuf" Version="0.6.*" />
+    <PackageReference Include="IceRpc.Slice.Tools" Version="0.6.*" PrivateAssets="All" />
+    <PackageReference Include="IceRpc.Slice" Version="0.6.*" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="10.0.*" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="10.0.*" />
 
@@ -33,8 +33,8 @@
     </PackageReference>
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)/../../stylecop.json" />
 
-    <SliceFile Include="../slice/*" />
-    <ProtoFile Include="../proto/*" />
+    <SliceFile Include="../slice/**/*.slice" />
+    <ProtoFile Include="../proto/**/*.proto" />
   </ItemGroup>
   <ItemDefinitionGroup>
     <SliceFile>
