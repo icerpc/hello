@@ -58,7 +58,6 @@ jobs:
           key: ${{ secrets.SSH_DEPLOY_KEY }}
           script: |
             cd /opt/hello
-            docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
             docker compose pull hello-icerpc
             docker compose up -d hello-icerpc
             docker system prune -f
