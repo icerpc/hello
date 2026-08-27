@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/vscode/devcontainers/dotnet:1-8.0-jammy
+FROM mcr.microsoft.com/vscode/devcontainers/dotnet:7.0-jammy
 
 USER vscode
 WORKDIR /home/vscode
