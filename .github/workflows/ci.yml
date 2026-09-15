@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: ["main"]
   schedule:
-    - cron: "0 0 * * 0" # weekly, so base-image fixes reach the deployed image
+    - cron: "0 0 * * 0"
 
 # One active run per ref. On PRs, newer pushes cancel older in-progress runs;
 # on main, runs queue instead so an in-flight publish/deploy always finishes.
