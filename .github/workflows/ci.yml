@@ -58,9 +58,9 @@ jobs:
           provenance: false
           push: ${{ github.event_name != 'pull_request' && github.repository == 'icerpc/hello' }}
           tags: |
-            icerpc/helloatest
+            icerpc/hello:latest
             ghcr.io/icerpc/hello:${{ github.sha }}
-            ghcr.io/icerpc/helloatest
+            ghcr.io/icerpc/hello:latest
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
